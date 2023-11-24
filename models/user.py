@@ -1,19 +1,15 @@
-#!/usr/bin/python3
-"""Defines the User class."""
-from models.base_model import BaseModel
+import unittest
+from models.user import User
 
+class TestUser(unittest.TestCase):
+    def test_user_initialization(self):
+        user = User()
+        self.assertIsInstance(user, User)
 
-class User(BaseModel):
-    """Represent a User.
+    def test_user_email(self):
+        user = User(email="user@example.com")
+        self.assertEqual(user.email, "user@example.com")
 
-    Attributes:
-        email (str): The email of the user.
-        password (str): The password of the user.
-        first_name (str): The first name of the user.
-        last_name (str): The last name of the user.
-    """
+if __name__ == "__main__":
+    unittest.main()
 
-    email = ""
-    password = ""
-    first_name = ""
-    last_name = ""
